@@ -36,7 +36,6 @@ module.exports = defineConfig([
       ],
       // Angular best practices
       '@angular-eslint/no-empty-lifecycle-method': 'warn',
-      '@angular-eslint/prefer-on-push-component-change-detection': 'warn',
       '@angular-eslint/prefer-output-readonly': 'warn',
       '@angular-eslint/prefer-signals': 'warn',
       '@angular-eslint/prefer-standalone': 'warn',

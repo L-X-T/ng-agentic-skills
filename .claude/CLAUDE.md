@@ -15,7 +15,7 @@ Don't mention yourself in commits.
 ## Picking models for workflows and subagents
 
 - Most tasks: gpt-5.5 – it's effectively free for me.
-- Planning, designing, architecture, and orchestrating agents: fable-5 if available, otherwise opus-4.8.
+- Planning, designing, architecture, and orchestrating agents: fable-5.1 if available, otherwise opus-4.8.
 
 Mechanics:
 

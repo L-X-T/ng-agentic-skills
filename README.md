@@ -147,7 +147,9 @@ In the last commit we wrapped up the agentic tooling so every AI tool – Claude
   access for unattended runs, and prefer short-lived, scoped credentials.
 - **Registered MCP servers** in `.mcp.json` (Angular CLI, Spartan UI, Chrome DevTools, Figma and
   Figma Desktop) and mirrored them into the tool-specific locations that don't read the root file:
-  `.vscode/mcp.json`, `.junie/mcp/mcp.json` and `.codex/config.toml`.
+  `.vscode/mcp.json`, `.junie/mcp/mcp.json` and `.codex/config.toml`. These five servers are examples
+  that fit this workspace – every team should curate its own set. Each MCP server costs context and
+  trust, so only register servers that earn their place in your project.
 - **Added thin per-agent files** (`.cursorrules`, `.clinerules`, `.junie/AGENTS.md`, `.gemini/GEMINI.md`, `.windsurf/rules/guidelines.md`, `.github/copilot-instructions.md`) that defer to `AGENTS.md`, plus `.claude/settings.json` to enable the project MCP servers.
 - **Renamed `.prettierrc` to `.prettierrc.json`** and added an `ng:update` script to `package.json` for upgrading Angular.
 
@@ -215,3 +217,19 @@ Agentic workflows produce a lot of Markdown – plans, reviews, docs like this o
 #### Window Manager / Split Screen Helper
 
 Agent, editor, and browser side by side is the standard layout – [Rectangle](https://rectangleapp.com) (mac) or [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones) (win, part of PowerToys) get you there with one shortcut.
+
+## Angular Skills
+
+Beyond the shared conventions, this workspace ships a library of **agent skills** under
+`.agents/skills/` – focused, reusable capabilities an AI agent can invoke for Angular work
+(signal forms, data access, SignalStore state, migrations, refactoring, accessibility,
+performance and security reviews, prototyping, unit and e2e tests, verifying a feature in the
+browser) and for the agentic process itself (skill authoring, brainstorming and grilling, plan
+execution, test-driven development, bug diagnosis, code review, prose de-slopping, handover, git
+stack rewrites). Each skill is a folder with a `SKILL.md` plus optional `references/`,
+`scripts/`, or `assets/` support files loaded just in time, split into **custom** skills
+authored here (MIT-licensed) and **third-party** skills adapted from public sources with their
+origins and local adaptations recorded.
+
+See [`02-SKILLS.md`](02-SKILLS.md) for the full directory – every skill with a one-line description,
+grouped into custom and third-party.

@@ -6,3 +6,6 @@
 
 # Managed by JetBrains Junie; it rewrites this with its own JSON style
 /.junie/mcp/mcp.json
+
+# pnpm owns this file's format; prettier would fight the lockfile generator
+/pnpm-lock.yaml
