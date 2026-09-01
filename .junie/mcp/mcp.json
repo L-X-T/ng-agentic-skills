@@ -1,0 +1,41 @@
+{
+    "mcpServers": {
+        "angular-cli": {
+            "command": "pnpm",
+            "args": [
+                "exec",
+                "ng",
+                "mcp"
+            ]
+        },
+        "spartan-ui": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@spartan-ng/mcp"
+            ]
+        },
+        "chrome-devtools": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "chrome-devtools-mcp@latest",
+                "--browserUrl",
+                "http://127.0.0.1:9222"
+            ]
+        },
+        "figma": {
+            "url": "https://mcp.figma.com/mcp"
+        },
+        "figma-desktop": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@pyroprompts/mcp-stdio-to-streamable-http-adapter"
+            ],
+            "env": {
+                "URI": "http://127.0.0.1:3845/mcp"
+            }
+        }
+    }
+}

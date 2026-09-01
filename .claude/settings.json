@@ -1,0 +1,18 @@
+{
+  "enabledMcpjsonServers": ["angular-cli", "spartan-ui", "chrome-devtools", "figma", "figma-desktop"],
+  "enableAllProjectMcpServers": true,
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(*.pem)",
+      "Read(*.key)",
+      "Read(*.p12)",
+      "Read(*.pfx)",
+      "Read(./secrets/**)",
+      "Read(./credentials/**)",
+      "Read(service-account*.json)",
+      "Read(./src/environments/**)"
+    ]
+  }
+}

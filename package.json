@@ -1,0 +1,58 @@
+{
+  "name": "ng-agentic",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prepare": "husky",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:ng-agentic": "node dist/ng-agentic/server/server.mjs",
+    "format": "prettier --write .",
+    "lint": "ng lint",
+    "ng:update": "ng update @angular/cli @angular/core angular-eslint @angular-eslint/builder"
+  },
+  "lint-staged": {
+    "*.{html,js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,json,md,scss}": [
+      "prettier --write"
+    ]
+  },
+  "private": true,
+  "packageManager": "pnpm@10.29.3",
+  "dependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
+    "@angular/platform-server": "^22.0.0",
+    "@angular/router": "^22.0.0",
+    "@angular/ssr": "^22.0.0",
+    "express": "^5.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular-eslint/builder": "22.0.0",
+    "@angular/build": "^22.0.0",
+    "@angular/cli": "^22.0.0",
+    "@angular/compiler-cli": "^22.0.0",
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.1",
+    "@types/node": "^24.13.1",
+    "angular-eslint": "22.0.0",
+    "eslint": "^10.4.1",
+    "husky": "^9.1.7",
+    "jsdom": "^29.1.1",
+    "lint-staged": "^17.0.7",
+    "prettier": "^3.8.1",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.60.1",
+    "vitest": "^4.1.8"
+  }
+}

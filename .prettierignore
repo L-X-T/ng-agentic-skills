@@ -1,0 +1,8 @@
+/.angular
+/coverage
+/dist
+/labs
+/node_modules
+
+# Managed by JetBrains Junie; it rewrites this with its own JSON style
+/.junie/mcp/mcp.json

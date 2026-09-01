@@ -1,0 +1,42 @@
+default_permissions = "no-secrets"
+
+[permissions.no-secrets]
+description = "Block reads of secrets and environment files"
+
+[permissions.no-secrets.filesystem]
+glob_scan_max_depth = 8
+
+[permissions.no-secrets.filesystem.":workspace_roots"]
+"**/.env" = "deny"
+"**/.env.*" = "deny"
+"**/*.pem" = "deny"
+"**/*.key" = "deny"
+"**/*.p12" = "deny"
+"**/*.pfx" = "deny"
+"**/secrets/**" = "deny"
+"**/credentials/**" = "deny"
+"**/service-account*.json" = "deny"
+"src/environments/**" = "deny"
+
+[mcp_servers.angular-cli]
+command = "pnpm"
+args = [ "exec", "ng", "mcp" ]
+
+[mcp_servers.spartan-ui]
+command = "npx"
+args = [ "-y", "@spartan-ng/mcp" ]
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = [ "-y", "chrome-devtools-mcp@latest", "--browserUrl", "http://127.0.0.1:9222" ]
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.figma-desktop]
+command = "npx"
+args = [ "-y", "@pyroprompts/mcp-stdio-to-streamable-http-adapter" ]
+env = { URI = "http://127.0.0.1:3845/mcp" }
+
+[features]
+multi_agent = true
