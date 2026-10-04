@@ -1,22 +1,5 @@
-default_permissions = "no-secrets"
-
-[permissions.no-secrets]
-description = "Block reads of secrets and environment files"
-
-[permissions.no-secrets.filesystem]
-glob_scan_max_depth = 8
-
-[permissions.no-secrets.filesystem.":workspace_roots"]
-"**/.env" = "deny"
-"**/.env.*" = "deny"
-"**/*.pem" = "deny"
-"**/*.key" = "deny"
-"**/*.p12" = "deny"
-"**/*.pfx" = "deny"
-"**/secrets/**" = "deny"
-"**/credentials/**" = "deny"
-"**/service-account*.json" = "deny"
-"src/environments/**" = "deny"
+[features]
+multi_agent = true
 
 [mcp_servers.angular-cli]
 command = "pnpm"
@@ -37,6 +20,3 @@ url = "https://mcp.figma.com/mcp"
 command = "npx"
 args = [ "-y", "@pyroprompts/mcp-stdio-to-streamable-http-adapter" ]
 env = { URI = "http://127.0.0.1:3845/mcp" }
-
-[features]
-multi_agent = true

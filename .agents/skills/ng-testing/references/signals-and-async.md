@@ -1,7 +1,7 @@
 # Signal timing and zoneless async patterns
 
 How reactive state settles in a Vitest + TestBed run, and which flush primitive matches each case.
-These patterns target Angular 22 and Vitest 4; verify examples against the installed versions.
+These patterns target Angular 22 and Vitest 5; verify examples against the installed versions.
 
 ## Reading reactive state
 

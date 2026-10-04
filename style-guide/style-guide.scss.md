@@ -1,6 +1,6 @@
 # SCSS Style Guide
 
-Last updated on 2026-06-06.
+Last updated on 2026-09-07.
 
 This document contains guidelines for _Angular_ styling (SCSS) files.
 
@@ -19,9 +19,8 @@ This document contains guidelines for _Angular_ styling (SCSS) files.
   - use meaningful empty lines to separate code
   - put a blank line (two line breaks) between rules
 - use classes or element-names (component selectors), avoid ids
-- if `ViewEncapsulation.None` a prefix must be used
-  - project specific prefix
-  - but not to CSS custom properties
+- a project-specific class prefix is required with `ViewEncapsulation.None` and may be used with encapsulated styles too
+  - never on CSS custom properties
 - max 2, in rare cases 3 nested selectors
 - use global CSS custom properties for design tokens
 - use component-private CSS custom properties on `:host` for component-specific styling knobs
@@ -35,6 +34,7 @@ This document contains guidelines for _Angular_ styling (SCSS) files.
   - `margin: 0.5em;`
 - use `@use` and `@forward` instead of deprecated `@import`
 - use `rem` for typography instead of `px`
+- use `hsl()` / `hsla()` colors via custom properties; avoid defining raw colors
 
 ### Should do
 
@@ -47,6 +47,7 @@ This document contains guidelines for _Angular_ styling (SCSS) files.
   - `.lxt-person__head {}`
   - `.lxt-person--tall {}`
   - there are no nested BEM selectors
+- use `@layer` to group styles when the project has committed to layered CSS
 - organise global styles by using imports
   - 1.) Variables (breakpoints, colors, sizes)
   - 2.) Libraries and helpers (CDK, Bootstrap)
@@ -70,7 +71,7 @@ This document contains guidelines for _Angular_ styling (SCSS) files.
   - use modifier instead: `.lxt-avatar--disabled`
 - avoid defining raw colors in components (use design tokens or component-private custom properties)
 - avoid `float` use CSS grid or flexbox instead
-  - howto [choose between grid and flexbox](https://medium.com/youstart-labs/beginners-guide-to-choose-between-css-grid-and-flexbox-783005dd2412)
+  - howto [choose between grid and flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods)
 - avoid writing properties which could be shorthanded (e.g., margin)
 - avoid `&` to nest styles (for better readability)
 - avoid using `::ng-deep` as it is deprecated (use CSS custom properties instead)

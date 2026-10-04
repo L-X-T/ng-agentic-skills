@@ -32,12 +32,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 export const appConfig: ApplicationConfig = {
   providers: [
     // …existing providers, incl. provideClientHydration(withEventReplay())
-    provideHttpClient(
-      withFetch(),
-      withInterceptors([
-        /* fns */
-      ]),
-    ),
+    provideHttpClient(withFetch(), withInterceptors([/* fns */])),
   ],
 };
 ```

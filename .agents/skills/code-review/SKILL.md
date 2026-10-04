@@ -100,7 +100,7 @@ Dispatch an independent reviewer subagent (the harness's default general-purpose
 the template at [references/code-reviewer.md](references/code-reviewer.md).
 
 A harness configuration file may override the reviewer setup – for example `.claude/CLAUDE.md`
-asks Claude Code for three reviewers on different models (Fable, Opus, Sol via Codex). When such a
+asks Claude Code for three reviewers on different models (Fable, Opus, Astra via Codex). When such a
 file is present, follow it: give every reviewer the same diff and template, then merge and
 deduplicate their findings before acting on them.
 

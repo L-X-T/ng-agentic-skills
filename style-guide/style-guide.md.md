@@ -1,6 +1,6 @@
 # Markdown Style Guide
 
-Last updated on 2026-06-06.
+Last updated on 2026-07-10.
 
 This document contains guidelines for Markdown files (`.md` / `.mdx`).
 
@@ -22,7 +22,8 @@ This document contains guidelines for Markdown files (`.md` / `.mdx`).
 
 ## Don't
 
-- don't use bare URLs — wrap them as `[text](url)`
+- don't use bare URLs – wrap them as `[text](url)`
+- NEVER use em dashes (`—`) – use a spaced en dash (`–`) instead
 - avoid raw HTML in Markdown unless necessary
 
 ## Resources

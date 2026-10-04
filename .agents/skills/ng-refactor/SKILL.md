@@ -173,7 +173,7 @@ written down.
 ## Setup this skill assumes
 
 The workshop's guardrails make AI refactoring reproducible – they should already be in place
-(see [Lab 01](https://github.com/L-X-T/ng-agentic/blob/skills/labs/01-setup.html)): **Prettier** + **ESLint** (the shared quality
+(see [Lab 01](../../../labs/01-setup.html)): **Prettier** + **ESLint** (the shared quality
 frame), an **`AGENTS.md`** with the project's rules, the **Angular MCP** for current docs, and
 per-tool secret-deny rules (`.claude/settings.json`, `.codex/config.toml`) so the agent never reads what it shouldn't. If they're missing, set them up
 first – the gauntlet and the linter-as-checklist depend on them.

@@ -1,6 +1,6 @@
 # TypeScript Style Guide
 
-Last updated on 2026-06-23.
+Last updated on 2026-09-07.
 
 This document contains guidelines for _Angular_ TypeScript files.
 
@@ -12,7 +12,7 @@ This document contains guidelines for _Angular_ TypeScript files.
   - [rule of one](https://angular.dev/style-guide#rule-of-one)
   - put entities and services into the scope where they are being used
 - use [**Prettier**](https://prettier.io/)
-  - use config from /prettier.config.js
+  - use config from `prettier.config.js`
   - use for these endings: {css,html,js,json,md,scss,ts}
   - use Prettier on save hook
 - use [**ESLint**](https://eslint.org/)
@@ -20,6 +20,8 @@ This document contains guidelines for _Angular_ TypeScript files.
   - use ESLint on save hook
 - use descriptive and meaningful names for all symbols
   - boolean fields always start with `is`, `has`, `show` or alike (e.g. `isLoading` or `hasChanges()`)
+    - exception: public component **inputs** are bare adjectives or feature nouns (`bordered`, `loading`, `multiSelection`), with `hide*` / `show*` only for visibility toggles; component **outputs** are past-tense events (`blurred`, `filesChanged`)
+      - two-way pairs follow Angular's `<name>Change` convention instead (`nodes` + `nodesChange`, as `model()` generates), so `[(nodes)]` binds
   - event functions start with `on` (e.g., `onSave()`)
 - refactor symbol names if necessary (e.g., due to requirements changes)
 - annotate public/protected APIs, function parameters, and non-obvious return values (also `void`)
@@ -33,6 +35,7 @@ This document contains guidelines for _Angular_ TypeScript files.
 - use `readonly` by default, unless a property needs to be reassigned
   - always use `readonly` on properties that are initialized by Angular
 - use `const` by default, unless a variable needs to be reassigned
+- use `static` for variables that are part of the class but not of the instance
 - keep constructors and lifecycle hooks simple and clean (basically only call methods, except one-liners)
   - avoid lifecycle hooks in the first place
   - for DOM work after render, prefer `afterNextRender()` / `afterRenderEffect()` over `ngAfterViewInit`
@@ -78,20 +81,21 @@ This document contains guidelines for _Angular_ TypeScript files.
 - `immutability` over `mutability` (for `OnPush` and `OnChanges`)
   - use `...` spread operator for shallow copies
   - use `structuredClone()` or a well-maintained package such as `klona` for deep copies
-- rely on the framework default `OnPush` change detection; never opt a component into `Eager`
+- rely on the default `OnPush` change detection in Angular v22+; do not set it explicitly or opt a component into `Eager`
 - use `Standalone Components` over `Modules`
   - do not set `standalone: true` inside Angular decorators, it is the default in Angular v20+
 - use the Signals API for state management (`signal()`, `computed()`, `effect()`)
 - use signal inputs (`input()`, `input.required()`), models (`model()`), outputs (`output()`), and queries (`viewChild()`) over decorators (`@Input()`, `@Output()`, `@ViewChild()`)
-- use Signal Forms (stable in v22) for new forms (`form()`, schema-based validators, field state)
-  - do not write new Reactive or Template-driven forms; only touch existing ones, and prefer migrating to Signal Forms when asked
+- prefer Signal Forms (stable in v22) for production form work (`form()`, schema-based validators, field state)
+  - use Reactive Forms only when maintaining an existing Reactive Forms area, integrating with APIs that require it, or when the user explicitly asks for it
+  - never use Template-driven forms for production code
 - prefer `resource()`, `rxResource()`, or `httpResource()` (all stable in v22) for signal-driven read operations
   - use service methods / `HttpClient` directly for mutations and imperative workflows
 - when using RxJS (interop, event streams, complex async):
   - suffix observables with `$`
   - prefer the `AsyncPipe`; when subscribing manually, use `takeUntilDestroyed()` (in a field initializer/constructor, else pass `DestroyRef`)
   - avoid nested subscriptions (e.g. use `switchMap`)
-- assume a zoneless app: never import `zone.js`; rely on signals for reactivity (`provideZonelessChangeDetection()`)
+- assume a zoneless app: never import `zone.js`; rely on signals for reactivity (zoneless is the default in Angular v22+)
 - prefer default `ViewEncapsulation` (`Emulated`)
 - prefer `inject()` over constructor dependency injection
   - group all `inject()` calls at the top of the class
@@ -99,9 +103,12 @@ This document contains guidelines for _Angular_ TypeScript files.
   - use `@Injectable({ providedIn: 'root' })` when provider configuration or compatibility requires it
 - consider `injectAsync()` to lazy-load heavy services where it reduces the initial bundle
 - it's okay to use `protected readonly` services directly in the View Template (HTML)
-- prefer initial / default values over `:Type | undefined` (might not make sense for objects)
+- use initial / default values only when they represent valid domain state
+  - preserve `undefined` when absence differs from an empty value (e.g. `signal<string | undefined>(undefined)` for a string that has not been set)
+  - use `??` when only `null` / `undefined` should trigger a fallback; use `||` only when all falsy values should
+  - display-only strings (labels, titles, placeholders) may default to `''` and fall back with `||`
 - prefer `?: Type` shorthand over `:Type | undefined`
-- use `symbolName: Partial<Type> = {}` if possible for objects
+- use `Partial<Type>` only for genuinely partial data (e.g. a patch); do not make required fields optional just to initialize an object with `{}`
 - use `!` with caution and only if you are sure that the value can never be `null` or `undefined` (e.g. required `@Inputs`, `viewChild()`)
 - use `input.required<Type>()` for required inputs
 - use the `host` object in `@Component` or `@Directive` instead of `@HostBinding` and `@HostListener`
@@ -114,7 +121,7 @@ This document contains guidelines for _Angular_ TypeScript files.
 - don't leave debug logs in the codebase
 - don't keep empty constructors
 - don't keep empty methods
-- don't default to external templates for very small components; prefer inline templates there
+- don't scaffold inline templates or styles; new components use separate `.ts`, `.html` and `.scss` files
 - avoid `any`, prefer `unknown`
 - avoid these lifecycle hooks where possible
   - `DoCheck()`
@@ -124,7 +131,6 @@ This document contains guidelines for _Angular_ TypeScript files.
   - avoid ALL lifecycle hooks
 - don't put leading `I` for interfaces
 - don't prefix private/protected members with `_`
-- don't iterate `NodeListOf` / `HTMLCollectionOf` directly; wrap with `Array.from()` (no `[Symbol.iterator]` under this project's strict config)
 
 ## Resources
 

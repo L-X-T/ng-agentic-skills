@@ -1,6 +1,6 @@
 # NPM Packages Style Guide
 
-Last updated on 2026-06-06.
+Last updated on 2026-09-07.
 
 This document contains guidelines for NPM packages.
 
@@ -11,7 +11,10 @@ Before including a third-party package:
 ### Must do
 
 - check if a first-party package is available
-- check license (e.g. MIT, Apache-2.0, ISC, BSD)
+- check license
+  - allowed: permissive licenses (MIT, Apache-2.0, ISC, BSD)
+  - not allowed: LGPL and stronger copyleft (GPL, AGPL)
+  - weak-copyleft edge cases (e.g. MPL, EPL): ask project steering
 - check vulnerabilities (run `pnpm audit`)
 - use devDependencies for development tools
 
@@ -33,6 +36,12 @@ Before including a third-party package:
 - avoid using commercial packages with license fee without approval by project steering
 - avoid mixing package managers; use the package manager configured by this workspace (`pnpm`)
 - avoid installing global packages unnecessarily
+
+## Resources
+
+- [pnpm docs](https://pnpm.io/)
+- [pnpm audit](https://pnpm.io/cli/audit)
+- [Bundlephobia](https://bundlephobia.com/)
 
 ## Back to index
 

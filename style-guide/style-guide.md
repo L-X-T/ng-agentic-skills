@@ -1,6 +1,6 @@
 # Angular Coding Style Guide
 
-Version 2.0.1, last updated on 2026-06-23.
+Version 2.1.0, last updated on 2026-09-07.
 
 This document contains a general style guide for Angular projects.
 
@@ -16,6 +16,7 @@ There are specific style guides for:
 - [Markdown Files](style-guide.md.md)
 - [NPM Packages](style-guide.npm.md)
 - [SCSS Styling Files](style-guide.scss.md)
+- [Security](style-guide.security.md)
 - [Testing (Vitest & Playwright)](style-guide.spec.md)
 - [TypeScript (Angular) Files](style-guide.ts.md)
 
@@ -24,7 +25,7 @@ There are specific style guides for:
 ### Must do
 
 - run [**Prettier**](https://prettier.io/) on save and before committing
-  - use config from `/.prettierrc.json`
+  - use config from `prettier.config.js`
   - use for these endings: {css,html,js,json,md,scss,ts}
 - use **LF endings**
 - use **UTF-8** (no BOM)

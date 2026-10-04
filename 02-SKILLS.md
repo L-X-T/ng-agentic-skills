@@ -5,7 +5,7 @@ Agent skills for this repository live under `.agents/skills/`. Each skill folder
 They fall into two groups: **third-party skills** copied or adapted from public sources, and
 **custom skills** authored in this repository.
 
-Work through [Lab 02 – Agent Skills](https://github.com/L-X-T/ng-agentic/blob/skills/labs/02-skills.html) to try a few skills on your own project
+Work through [Lab 02 – Agent Skills](labs/02-skills.html) to try a few skills on your own project
 and author one custom skill.
 
 To keep this index honest, run the
@@ -28,10 +28,10 @@ A skill may call a script. It should not regenerate that script on every run or 
 
 ## Blog coverage
 
-This catalogue contains **31 skills: 11 third-party and 20 custom**, including the latest
-additions, `frontend-design` and `update-skills`. The companion
-[skills blog post](https://www.angulararchitects.io/blog/ae-skills-for-angular/) introduces the
-catalogue and also discusses `angular-new-app` as intentionally unadopted and two private
+The [skills blog post](https://www.angulararchitects.io/blog/ae-skills-for-angular/) covers
+29 skills: 10 third-party (including `unslop`, `implement-plan` and `ng-verify-feature`) and
+19 custom. This catalogue also includes `update-skills` and `frontend-design`, bringing it to
+31 skills: 11 third-party and 20 custom. The post also mentions `angular-new-app` as intentionally unadopted and two private
 bookkeeping skills outside this Angular catalogue.
 
 `angular-developer` and `test-driven-development` remain available as optional examples, even
@@ -40,9 +40,8 @@ though the author no longer uses them in his daily workflow: frontier models car
 implementation over strict red-green-refactor. The shared `code-review` skill uses one
 independent reviewer; the post's three-model setup describes a personal customization.
 
-`git-stack-rewrite` retains its explicit-only Codex policy in `agents/openai.yaml`;
-its Claude Code frontmatter no longer disables model invocation. Skill discovery does not
-grant permission to change Git state; an explicit user request is still required.
+`git-stack-rewrite` is explicit-only: its frontmatter configures Claude Code, and
+`agents/openai.yaml` configures Codex. Invocation settings do not grant permission to change Git state.
 
 ## Pick by activity
 
@@ -83,7 +82,7 @@ Copied or adapted from public sources; the origin column records where each skil
 | Skill                                                                      | What it does                                                                                                                                                            | Origin                                                                                               |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | [angular-developer](.agents/skills/angular-developer/SKILL.md)             | The _Angular_ team's **official developer skill** – generates code and architectural guidance across signals, forms, DI, routing, SSR, testing, and CLI/MCP tooling.    | [`angular/skills`](https://github.com/angular/skills)                                                |
-| [brainstorming](.agents/skills/brainstorming/SKILL.md)                     | **Design-first workflow**: chooses a feasibility spike, a short design, or a full specification according to the request.                                               | [`obra/superpowers`](https://github.com/obra/superpowers) (adapted)                                  |
+| [brainstorming](.agents/skills/brainstorming/SKILL.md)                     | **Design-first workflow**: chooses a feasibility spike, a short design, or a full specification according to the request.                                               | [`obra/superpowers`](https://github.com/obra/superpowers)                                            |
 | [code-review](.agents/skills/code-review/SKILL.md)                         | Reviews current, staged, last-commit, or merge/PR work in **two passes – requirements, then style-guide and _Angular_ v22+ conformance** – via a reviewer subagent.     | [`obra/superpowers`](https://github.com/obra/superpowers) (adapted)                                  |
 | [diagnosing-bugs](.agents/skills/diagnosing-bugs/SKILL.md)                 | Six-phase bug hunt that **builds a red-capable feedback loop before hypothesising** – vitest/Playwright/`curl`/`git bisect` – then fixes behind a regression test.      | [`mattpocock/skills`](https://github.com/mattpocock/skills) (adapted)                                |
 | [frontend-design](.agents/skills/frontend-design/SKILL.md)                 | Anthropic's visual design guidance for distinctive UI – aesthetic direction, typography, layout, motion, and interface copy.                                            | [`anthropics/skills`](https://github.com/anthropics/skills/tree/main/skills/frontend-design)         |

@@ -169,7 +169,7 @@ encapsulation, or flattening selectors can change what renders.
 
 ## Setup this skill assumes
 
-The workshop's quality frame should already be in place (see [Lab 01](https://github.com/L-X-T/ng-agentic/blob/skills/labs/01-setup.html)):
+The workshop's quality frame should already be in place (see [Lab 01](../../../labs/01-setup.html)):
 **Prettier** + **ESLint**, an **`AGENTS.md`** with the project rules, the project's
 [`style-guide/`](../../../style-guide/style-guide.md), the **Angular MCP** for current docs, and
 per-tool secret-deny rules (`.claude/settings.json`, `.codex/config.toml`). **Stylelint is optional** – if absent, the skill reports it as a 🔵 advisory rather

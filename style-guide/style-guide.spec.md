@@ -1,6 +1,6 @@
 # Testing Style Guide
 
-Last updated on 2026-06-06.
+Last updated on 2026-09-07.
 
 This document contains guidelines for testing _Angular_ apps with **Vitest** (unit) and **Playwright** (e2e).
 
@@ -11,7 +11,6 @@ This document contains guidelines for testing _Angular_ apps with **Vitest** (un
 - name unit specs `*.spec.ts`, co-located with the unit under test
 - use `TestBed`; keep setup minimal
 - test public behavior, not private implementation details
-- use `provideZonelessChangeDetection()` in test setup (zoneless app)
 
 ### Should do
 
@@ -25,14 +24,15 @@ This document contains guidelines for testing _Angular_ apps with **Vitest** (un
 
 ### Must do
 
-- locate elements by role / label / text, not brittle CSS or XPath
+- locate elements by role / label / text or stable test IDs, not brittle CSS or XPath
+  - use `data-testid` as the one test-ID attribute across the workspace (Playwright's `getByTestId()` default); never `data-cy`
 - assert with web-first `expect` (auto-waiting); avoid fixed `waitForTimeout`
 
 ### Should do
 
 - keep tests independent; reset state between tests
 - run accessibility checks with `@axe-core/playwright` on key views (see a11y guide)
-- use fixtures / page objects for shared flows
+- use fixtures, page objects or shared helpers for repeated flows
 
 ## Don't
 

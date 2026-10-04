@@ -132,20 +132,3 @@ entrypoint, and unslop retains its existing attribution without a published upst
 No upstream executable scripts were adopted or run during the refresh; only the local digest checker ran. The new test-quality examples
 were reviewed as documentation, not compiled as an Angular feature. Fresh-host routing and behavioral
 evaluations of the changed skills remain untested.
-
-## Companion repository sync on September 8, 2026
-
-Imported the skill files and upstream records from the workshop repository's
-[skills commit a478b8b](https://github.com/L-X-T/ng-agentic/commit/a478b8b06e9f81f3e44f318f4b8b7e7851fb88f8).
-The earlier evaluation and upstream-review results above describe work recorded in that source;
-this sync does not claim to repeat those upstream comparisons or fresh-host evaluations.
-The catalogue now contains 31 skills: 11 third-party and 20 custom, including `frontend-design`
-and `update-skills`. The index links to the workshop's lab in its own repository.
-
-Sync verification: all 133 skill files match the source commit, apart from two workshop links in
-`ng-refactor` and `ng-styling` repointed to the workshop repository. All 31 skill entrypoints pass
-structure and catalogue checks, skill links resolve, and all 11 vendored digests match. The blog's
-31 table entries match the catalogue. Prettier, lint, build, and both existing unit tests passed.
-The digest helper also passed disposable-fixture checks for sorted paths and binary bytes, modified
-and renamed files, a missing skill, and malformed JSON, without writing to those fixtures.
-Fresh-host behavioral evaluations were not run during this sync.
