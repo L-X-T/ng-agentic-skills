@@ -1,0 +1,4 @@
+*.md linguist-detectable=true
+*.html linguist-detectable=false
+eslint.config.js linguist-vendored
+prettier.config.js linguist-vendored
